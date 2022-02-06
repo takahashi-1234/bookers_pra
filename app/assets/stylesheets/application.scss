@@ -14,3 +14,23 @@
  *= require_self
  */
 @import "bootstrap";
+
+.book_top{
+  display:flex;
+  justify-content:space-around;
+  padding:30px;
+}
+.new_book{
+  width:38%;
+  border:solid 1px gray;
+  border-radius:5px;
+  padding:30px;
+}
+.book_index{
+  width:60%;
+  border:solid 1px gray;
+  border-radius:5px;
+  padding:30px;
+  display:flex;
+  flex-wrap:wrap;
+}

@@ -1,0 +1,25 @@
+<div class="book_top">
+  <div class="new_book">
+    <%= form_with model:@book,local:true do |f| %>
+      <%= f.label:title %>
+      <%= f.text_field:title,placeholder:"タイトルを入力",class:"form-control" %>
+      <%= f.label:body %>
+      <%= f.text_field:body,placeholder:"詳細を入力",class:"form-control" %>
+      <%= f.label:image %><br>
+      <%= f.attachment_field:image %>
+      <%= f.hidden_field:user_id,:value=>current_user.id %>
+      <%= f.submit "投稿する",class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="book_index">
+    <% @books.each do |book| %>
+      <div>
+        <%= attachment_image_tag book,:image,size:"100x150",fallback:"noimage.png" %>
+        <div>
+          <%= book.title %><br>
+          <%= book.body %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
