@@ -13,11 +13,11 @@
   </div>
   <div class="book_index">
     <% @books.each do |book| %>
-      <div>
-        <%= attachment_image_tag book,:image,size:"100x150",fallback:"noimage.png" %>
-        <div>
-          <%= book.title %><br>
-          <%= book.body %>
+      <div class="card" style="width: 200px;">
+        <%= attachment_image_tag book,:image,size:"200x250",fallback:"noimage.png",class:"bd-placeholder-img card-img-top w-100" %>
+        <div class="card-body">
+          <h5 class="card-text"><%= book.title %></h5>
+          <p class="card-text"><%= book.body %></p>
         </div>
       </div>
     <% end %>
