@@ -1,0 +1,7 @@
+<div class="card" style="width: 400px;">
+  <%= attachment_image_tag @book,:image,size:"400x450",fallback:"noimage.png",class:"bd-placeholder-img card-img-top w-100" %>
+  <div class="card-body">
+    <h5 class="card-text"><%= @book.title %></h5>
+    <p class="card-text"><%= @book.body %></p>
+  </div>
+</div>
