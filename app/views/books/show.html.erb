@@ -3,5 +3,10 @@
   <div class="card-body">
     <h5 class="card-text"><%= @book.title %></h5>
     <p class="card-text"><%= @book.body %></p>
+    <% if @book.favorite_by(current_user) %>
+      <%= link_to "お気に入り済み",book_favorites_path(@book.id),method: :delete %>
+    <% else %>
+      <%= link_to "お気に入り登録",book_favorites_path(@book.id),method: :post %>
+    <% end %>
   </div>
 </div>
