@@ -1,12 +1,36 @@
-<div class="card" style="width: 400px;">
-  <%= attachment_image_tag @book,:image,size:"400x450",fallback:"noimage.png",class:"bd-placeholder-img card-img-top w-100" %>
-  <div class="card-body">
-    <h5 class="card-text"><%= @book.title %></h5>
-    <p class="card-text"><%= @book.body %></p>
-    <% if @book.favorite_by(current_user) %>
-      <%= link_to "お気に入り済み",book_favorites_path(@book.id),method: :delete %>
-    <% else %>
-      <%= link_to "お気に入り登録",book_favorites_path(@book.id),method: :post %>
-    <% end %>
+<div class="book_top">
+  <div class="new_book">
+    <div class="card" style="width: 400px;">
+      <%= attachment_image_tag @book,:image,size:"400x450",fallback:"noimage.png",class:"bd-placeholder-img card-img-top w-100" %>
+      <div class="card-body">
+        <h5 class="card-text"><%= @book.title %></h5>
+        <p class="card-text"><%= @book.body %></p>
+        <% if @book.favorite_by(current_user) %>
+          <%= link_to "お気に入り済み",book_favorites_path(@book.id),method: :delete %>
+        <% else %>
+          <%= link_to "お気に入り登録",book_favorites_path(@book.id),method: :post %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="book_show">
+    <div class="comment-index">
+      <% if @book.comments.exists? %>
+        <% @book.comments.each do |comment| %>
+          <div class="comment">
+            <%= comment.created_at.strftime("%F") %><br>
+            <%= comment.comment %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>コメントはまだありません</p>
+      <% end %>
+    </div>
+    <div class="new-comment">
+      <%= form_with model:@comment,url:book_comments_path(@book.id),local:true do |f| %>
+        <%= f.text_field:comment %>
+        <%= f.submit "コメントする" %>
+      <% end %>
+    </div>
   </div>
 </div>

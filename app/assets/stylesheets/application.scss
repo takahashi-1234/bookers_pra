@@ -35,7 +35,30 @@
   flex-wrap:wrap;
 }
 
+.book_show{
+  width:60%;
+  border:solid 1px gray;
+  border-radius:5px;
+  padding:30px;
+}
+
 .card-text{
   white-space:nowrap;
   text-overflow:ellipsis;
+}
+
+.comment{
+  margin:20px;
+  padding:20px;
+  border:solid 1px gray;
+  border-radius:5px;
+}
+
+.comment-index{
+  border:solid 1px gray;
+  height:75%;
+  overflow:scroll;
+}
+.new-comment{
+  margin-top:20px;
 }

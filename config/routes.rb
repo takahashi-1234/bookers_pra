@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root to: "books#index"
   resources:books,only:[:create,:destroy,:show] do
     resource:favorites,only:[:create,:destroy]
+    resource:comments,only:[:create,:destroy]
   end
 end
