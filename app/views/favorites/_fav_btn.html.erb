@@ -1,0 +1,5 @@
+<% if book.favorite_by(current_user) %>
+  ❤️<%= link_to "お気に入り済み",book_favorites_path(book.id),remote:true,method: :delete %>
+<% else %>
+  ♡<%= link_to "お気に入り登録",book_favorites_path(book.id),remote:true,method: :post %>
+<% end %>
